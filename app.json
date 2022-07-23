@@ -1,0 +1,67 @@
+{
+    "name": "Der bot",
+    "description": "Hapere",
+    "logo": "",
+    "keywords": [
+        "gehehsh"
+    ],
+    "repository": "https://var.com/",
+    "success_url": "https://combat",
+    "stack": "heroku-20",
+    "env": {
+        "API_ID": {
+            "description": "You api id, from my.telegram.org or @ScrapperRoBot.",
+            "value": "", 
+            "required": false
+        },
+        "API_HASH": {
+            "description": "You api hash, from my.telegram.org or @ScrapperRoBot.",
+            "value": "",
+            "required": false
+        },
+        "SESSION": {
+            "description": "Your session string. Can be added now, or after deploy. (The bot will NOT work without a session string!!)",
+            "value": ""
+        },
+        "REDIS_URI": {
+            "description": "Redis endpoint URL, from redislabs.com",
+            "value": "",
+            "required": false
+        },
+        "REDIS_PASSWORD": {
+            "description": "Redis endpoint password, from redislabs.com",
+            "value": "",
+            "required": false
+        },
+        "HEROKU_API": {
+            "description": "Heroku API token. Needed if deploying on heroku ONLY.",
+            "value": "",
+            "required": true
+        },
+        "HEROKU_APP_NAME": {
+            "description": "Name of your heroku app, given in the first blank on this page. To be added if deploying to heroku ONLY.",
+            "value": "",
+            "required":  true
+        }
+    },
+    "formation": {
+      "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "buildpacks": [
+    {
+        "url":"heroku/python"
+    },
+    {
+        "url":"heroku-community/apt"
+    },
+    {
+        "url":"https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+        "url":"https://github.com/stevo550/buildpack-slug-cleaner"
+    }
+    ]
+}
